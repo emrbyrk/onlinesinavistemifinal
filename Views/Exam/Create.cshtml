@@ -1,0 +1,12 @@
+﻿@model onlinesinavsistemifinal.Models.Exam
+
+<h2>Sınav Oluştur</h2>
+
+@using (Html.BeginForm("Create", "Exam", FormMethod.Post))
+{
+    <div>
+        <label>Sınav Başlığı</label>
+        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}

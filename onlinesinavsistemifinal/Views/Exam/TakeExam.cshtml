@@ -1,0 +1,44 @@
+﻿@model onlinesinavsistemifinal.Models.Exam
+
+<div class="container mt-5">
+    <h2 class="text-center">@Model.Title</h2>
+    <p class="text-center text-muted">Sınav Süresi: @Model.DurationInMinutes dakika</p>
+    <hr />
+
+    @using (Html.BeginForm("SubmitExam", "Exam", FormMethod.Post, new { @class = "needs-validation" }))
+    {
+        @Html.Hidden("examId", Model.Id)
+
+        <div class="questions">
+            @foreach (var question in Model.Questions)
+            {
+                <div class="mb-4">
+                    <p><strong>@question.Content</strong></p>
+                    <div class="form-check">
+                        <input type="radio" id="q@question.Id-A" name="answers[@question.Id]" value="A" class="form-check-input" />
+                        <label for="q@question.Id-A" class="form-check-label">A) @question.OptionA</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="q@question.Id-B" name="answers[@question.Id]" value="B" class="form-check-input" />
+                        <label for="q@question.Id-B" class="form-check-label">B) @question.OptionB</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="q@question.Id-C" name="answers[@question.Id]" value="C" class="form-check-input" />
+                        <label for="q@question.Id-C" class="form-check-label">C) @question.OptionC</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="q@question.Id-D" name="answers[@question.Id]" value="D" class="form-check-input" />
+                        <label for="q@question.Id-D" class="form-check-label">D) @question.OptionD</label>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success btn-lg">Sınavı Bitir</button>
+        </div>
+    }
+    }
+</div>
+
+

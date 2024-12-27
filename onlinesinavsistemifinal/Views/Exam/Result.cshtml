@@ -1,0 +1,18 @@
+﻿@model onlinesinavsistemifinal.Models.ExamResult
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-center bg-primary text-white">
+            <h2>Sınav Sonucu</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Sınav:</strong> @Model.Exam?.Title ?? "Sınav bilgisi yok"</p>
+            <p><strong>Puan:</strong> @Model.Score</p>
+            <p><strong>Kullanıcı:</strong> @Model.User?.UserName ?? "Kullanıcı bilgisi yok"</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/Exam/Index" class="btn btn-primary">Sınav Listesine Dön</a>
+        </div>
+    </div>
+</div>
+
